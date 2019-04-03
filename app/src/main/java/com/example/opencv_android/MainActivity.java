@@ -141,8 +141,6 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
     @Override
     public void onCameraViewStopped() {
         mat1.release();
-        mat2.release();
-        mat3.release();
     }
 
     @Override
@@ -150,9 +148,6 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
         mat1 = inputFrame.rgba();
 
         //TODO rotate the frame by 90 degrees
-        Core.transpose(mat1, mat2);
-        Imgproc.resize(mat2, mat3, mat3.size(), 0, 0, 0);
-        Core.flip();
 
         return mat1;
     }
